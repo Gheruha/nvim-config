@@ -27,9 +27,35 @@ vim.g.maplocalleader = "\\"
 
 -- Setup lazy.nvim with eager-loading for frequently used plugins
 require("lazy").setup("plugins", {
-   install = { colorscheme = { "night-owl" } },
-   checker = { enabled = true },
+    checker = { enabled = true },
 })
+
+-- Basic key mappings (available immediately)
+vim.keymap.set("n", "<D-z>", "u", { desc = "Undo (⌘+Z)", noremap = true, silent = true })
+vim.keymap.set("n", "<D-S-z>", "<C-r>", { desc = "Redo (⇧⌘+Z)", noremap = true, silent = true })
+
+-- Normal mode: start visual and move
+vim.keymap.set('n', '<S-Up>',    'v<Up>',    { noremap=true, silent=true })
+vim.keymap.set('n', '<S-Down>',  'v<Down>',  { noremap=true, silent=true })
+vim.keymap.set('n', '<S-Left>',  'v<Left>',  { noremap=true, silent=true })
+vim.keymap.set('n', '<S-Right>', 'v<Right>', { noremap=true, silent=true })
+
+-- Visual mode: extend the existing selection
+vim.keymap.set('v', '<S-Up>',    '<Up>',    { noremap=true, silent=true })
+vim.keymap.set('v', '<S-Down>',  '<Down>',  { noremap=true, silent=true })
+vim.keymap.set('v', '<S-Left>',  '<Left>',  { noremap=true, silent=true })
+vim.keymap.set('v', '<S-Right>', '<Right>', { noremap=true, silent=true })
+
+-- Insert mode: leave insert, start visual, then move
+vim.keymap.set('i', '<S-Up>',    '<Esc>v<Up>',    { noremap=true, silent=true })
+vim.keymap.set('i', '<S-Down>',  '<Esc>v<Down>',  { noremap=true, silent=true })
+vim.keymap.set('i', '<S-Left>',  '<Esc>v<Left>',  { noremap=true, silent=true })
+vim.keymap.set('i', '<S-Right>', '<Esc>v<Right>', { noremap=true, silent=true })
+
+-- Select All with ⌘+A
+vim.keymap.set("n", "<D-a>", "ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
+vim.keymap.set("i", "<D-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
+vim.keymap.set("v", "<D-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
 
 -- Telescope key mappings (available immediately)
 local builtin = require("telescope.builtin")
