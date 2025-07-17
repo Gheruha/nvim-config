@@ -1,3 +1,4 @@
+vim.opt.clipboard = "unnamedplus"
 -- Keys
 vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
@@ -25,10 +26,12 @@ vim.opt.rtp:prepend(lazypath)
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
--- Setup lazy.nvim with eager-loading for frequently used plugins
+-- Setup lazy.nvim with eager-loading for frequently used plugins ============================
 require("lazy").setup("plugins", {
     checker = { enabled = true },
 })
+-- Setup lazy.nvim with eager-loading for frequently used plugins ============================
+
 
 -- Basic key mappings (available immediately)
 vim.keymap.set("n", "<D-z>", "u", { desc = "Undo (⌘+Z)", noremap = true, silent = true })
@@ -57,11 +60,4 @@ vim.keymap.set("n", "<D-a>", "ggVG", { desc = "Select all (⌘+A)", noremap = tr
 vim.keymap.set("i", "<D-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
 vim.keymap.set("v", "<D-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
 
--- Telescope key mappings (available immediately)
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<D-f>", builtin.find_files, { desc = "Telescope Find Files" })
-vim.keymap.set("n", "<D-g>", builtin.live_grep,  { desc = "Telescope Live Grep"  })
-
--- Neotree key mappings (available immediately)
-vim.keymap.set("n", "<D-b>", ":Neotree toggle position=right<CR>", {})
 
