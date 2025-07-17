@@ -60,4 +60,5 @@ vim.keymap.set("n", "<D-a>", "ggVG", { desc = "Select all (⌘+A)", noremap = tr
 vim.keymap.set("i", "<D-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
 vim.keymap.set("v", "<D-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
 
-
+-- Open Lazy shortcut
+vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Open Lazy.nvim UI (leader l)" })
