@@ -23,7 +23,19 @@ return {
 			-- Keymaps
 			{ "<D-f>", "<cmd>Telescope find_files<cr>", mode = "n", desc = "Telescope: Find Files" },
 			{ "<D-g>", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Telescope: Live Grep" },
-			-- etc.
+			{
+				"<leader>g",
+				function()
+					require("telescope.builtin").live_grep({
+						additional_args = function()
+							-- only search this exact filename
+							return { "--glob", vim.fn.expand("%:t") }
+						end,
+					})
+				end,
+				mode = "n",
+				desc = "Telescope: Live Grep in current file",
+			},
 		},
 	},
 }
