@@ -23,6 +23,7 @@ return {
 		require("neo-tree").setup(opts)
 	end,
 	keys = {
-		vim.keymap.set("n", "<D-b>", ":Neotree toggle position=right<CR>", {}),
+		vim.keymap.set("n", "<S-b>", ":Neotree toggle position=right<CR>", {}),
 	},
 }
+

@@ -21,8 +21,8 @@ return {
 		end,
 		keys = {
 			-- Keymaps
-			{ "<D-f>", "<cmd>Telescope find_files<cr>", mode = "n", desc = "Telescope: Find Files" },
-			{ "<D-g>", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Telescope: Live Grep" },
+			{ "<S-f>", "<cmd>Telescope find_files<cr>", mode = "n", desc = "Telescope: Find Files" },
+			{ "<S-g>", "<cmd>Telescope live_grep<cr>", mode = "n", desc = "Telescope: Live Grep" },
 			{
 				"<leader>g",
 				function()

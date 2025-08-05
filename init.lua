@@ -34,8 +34,8 @@ require("lazy").setup("plugins", {
 -- Setup lazy.nvim with eager-loading for frequently used plugins ============================
 
 -- Basic key mappings (available immediately)
-vim.keymap.set("n", "<D-z>", "u", { desc = "Undo (⌘+Z)", noremap = true, silent = true })
-vim.keymap.set("n", "<D-S-z>", "<C-r>", { desc = "Redo (⇧⌘+Z)", noremap = true, silent = true })
+vim.keymap.set("n", "<S-z>", "u", { desc = "Undo (⌘+Z)", noremap = true, silent = true })
+vim.keymap.set("n", "<S-x>", "<C-r>", { desc = "Redo (⇧⌘+Z)", noremap = true, silent = true })
 
 -- Normal mode: start visual and move
 vim.keymap.set("n", "<S-Up>", "v<Up>", { noremap = true, silent = true })
@@ -56,9 +56,9 @@ vim.keymap.set("i", "<S-Left>", "<Esc>v<Left>", { noremap = true, silent = true 
 vim.keymap.set("i", "<S-Right>", "<Esc>v<Right>", { noremap = true, silent = true })
 
 -- Select All with ⌘+A
-vim.keymap.set("n", "<D-a>", "ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
-vim.keymap.set("i", "<D-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
-vim.keymap.set("v", "<D-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
+vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
+vim.keymap.set("i", "<C-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
+vim.keymap.set("v", "<C-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
 
 -- Open Lazy shortcut
 vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Open Lazy.nvim UI (leader l)" })
