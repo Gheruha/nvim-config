@@ -15,6 +15,6 @@ return {
 			    null_ls.builtins.formatting.eslint, -- eslint
             },
 		})
-		vim.keymap.set("n", "<D-s>", vim.lsp.buf.format, {})
+		vim.keymap.set("n", "<C-s>", vim.lsp.buf.format, {})
 	end,
 }
