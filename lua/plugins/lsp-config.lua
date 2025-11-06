@@ -23,6 +23,7 @@ return {
         "html", -- HTML
         "cssls", -- CSS
         "bzl", -- Bazel / Starlark
+        "gopls",
       },
       automatic_installation = true,
     },
@@ -42,7 +43,6 @@ return {
       local on_attach = function(client, bufnr)
         local bufopts = { noremap = true, silent = true, buffer = bufnr }
 
-        -- If you use external formatters (prettier/biome), keep ts formatting off:
         if client.name == "ts_ls" then
           client.server_capabilities.documentFormattingProvider = false
           client.server_capabilities.documentRangeFormattingProvider = false
@@ -72,6 +72,7 @@ return {
         "html", -- HTML
         "cssls", -- CSS
         "bzl", -- Bazel / Starlark
+        "gopls",
       }
 
       -- Per-server settings/overrides
@@ -122,10 +123,7 @@ return {
           },
         },
 
-        -- New TS/JS server key: ts_ls (typescript-language-server)
         ts_ls = {
-          -- If you keep formatting external (prettier/biome), we disable it in on_attach above.
-          -- Useful init_options/preferences; adjust to taste:
           init_options = {
             hostInfo = "neovim",
             preferences = {
@@ -188,6 +186,24 @@ return {
 
         bzl = {
           root_dir = util.root_pattern("WORKSPACE", "WORKSPACE.bazel", ".git"),
+        },
+        gopls = {
+          cmd = { "gopls" },
+          filetypes = { "go", "gomod", "gowork", "gotmpl" },
+          root_dir = function(fname)
+            return util.root_pattern("go.work", "go.mod", ".git")(fname) or util.path.dirname(fname)
+          end,
+          settings = {
+            gopls = {
+              usePlaceholders = true,
+              gofumpt = true,
+              staticcheck = true,
+              analyses = {
+                unusedparams = true,
+                shadow = true,
+              },
+            },
+          },
         },
       }
 
