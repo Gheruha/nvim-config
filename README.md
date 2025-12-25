@@ -1,5 +1,5 @@
 # Neovim base config - with lazy
-### This repository is for those who want to move to neovim. Here you'll find a solid and ready-to-go configuration for you.
+### This repository is for those who want to use neovim. You'll be able to find documentation about this configuration in order to learn. Feel free to explore this readme and ask me questions.
 ----
 ### A quick introduction:
 <img width="1470" height="956" alt="Screenshot 2025-07-18 at 11 32 01" src="https://github.com/user-attachments/assets/08f120bc-0150-488e-8d37-fae696187e0c" />
