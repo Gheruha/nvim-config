@@ -1,10 +1,10 @@
-vim.opt.number = true
-vim.opt.clipboard = "unnamedplus"
--- Keys
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=2")
-vim.cmd("set softtabstop=2")
-vim.cmd("set shiftwidth=2")
+-- Core options & keymaps
+require("config.options")
+require("config.keymaps")
+
+-- Leader(space) keys for shortcuts with space key
+vim.g.mapleader = " "
+vim.g.maplocalleader = "\\"
 
 -- Bootstrap lazy.nvim
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
@@ -23,42 +23,7 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
--- Leader keys
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
-
--- Setup lazy.nvim with eager-loading for frequently used plugins ============================
+-- Load the plugins inside /lua/plugins folder
 require("lazy").setup("plugins", {
   checker = { enabled = true },
 })
--- Setup lazy.nvim with eager-loading for frequently used plugins ============================
-
--- Basic key mappings (available immediately)
-vim.keymap.set("n", "<S-z>", "u", { desc = "Undo (⌘+Z)", noremap = true, silent = true })
-vim.keymap.set("n", "<S-x>", "<C-r>", { desc = "Redo (⇧⌘+Z)", noremap = true, silent = true })
-
--- Normal mode: start visual and move
-vim.keymap.set("n", "<S-Up>", "v<Up>", { noremap = true, silent = true })
-vim.keymap.set("n", "<S-Down>", "v<Down>", { noremap = true, silent = true })
-vim.keymap.set("n", "<S-Left>", "v<Left>", { noremap = true, silent = true })
-vim.keymap.set("n", "<S-Right>", "v<Right>", { noremap = true, silent = true })
-
--- Visual mode: extend the existing selection
-vim.keymap.set("v", "<S-Up>", "<Up>", { noremap = true, silent = true })
-vim.keymap.set("v", "<S-Down>", "<Down>", { noremap = true, silent = true })
-vim.keymap.set("v", "<S-Left>", "<Left>", { noremap = true, silent = true })
-vim.keymap.set("v", "<S-Right>", "<Right>", { noremap = true, silent = true })
-
--- Insert mode: leave insert, start visual, then move
-vim.keymap.set("i", "<S-Up>", "<Esc>v<Up>", { noremap = true, silent = true })
-vim.keymap.set("i", "<S-Down>", "<Esc>v<Down>", { noremap = true, silent = true })
-vim.keymap.set("i", "<S-Left>", "<Esc>v<Left>", { noremap = true, silent = true })
-vim.keymap.set("i", "<S-Right>", "<Esc>v<Right>", { noremap = true, silent = true })
-
--- Select All with ⌘+A
-vim.keymap.set("n", "<C-a>", "ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
-vim.keymap.set("i", "<C-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
-vim.keymap.set("v", "<C-a>", "<Esc>ggVG", { desc = "Select all (⌘+A)", noremap = true, silent = true })
-
--- Open Lazy shortcut
-vim.keymap.set("n", "<leader>l", "<cmd>Lazy<CR>", { desc = "Open Lazy.nvim UI (leader l)" })
